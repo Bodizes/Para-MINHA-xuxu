@@ -86,6 +86,8 @@ const musica = document.getElementById("musica");
 const botaoMusica = document.getElementById("botaoMusica");
 
 function toggleMusica() {
+    console.log("Botão de música clicado!");
+
     if (musica.paused) {
         musica.play()
             .then(() => {
@@ -93,11 +95,10 @@ function toggleMusica() {
                 botaoMusica.classList.add("tocando");
             })
             .catch((erro) => {
-                console.log("Não foi possível reproduzir a música:", erro);
+                console.error("Erro ao tocar:", erro);
             });
     } else {
         musica.pause();
-
         botaoMusica.textContent = "🎵";
         botaoMusica.classList.remove("tocando");
     }
