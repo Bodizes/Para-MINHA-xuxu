@@ -103,3 +103,51 @@ footer {
     }
 
 }
+.motivo-numero {
+    color: #666 !important;
+    font-size: 10px !important;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 12px !important;
+}
+
+.motivo-numero span {
+    color: #ff4fa3;
+}
+
+.motivo-texto {
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+.next-button {
+    margin-top: 25px;
+    padding: 13px 22px;
+
+    border: 1px solid #ff4fa3;
+    border-radius: 12px;
+
+    background: transparent;
+    color: #ff5daa;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+.next-button:hover {
+    background: #ff4fa3;
+    color: #10070c;
+    box-shadow: 0 0 25px rgba(255, 79, 163, 0.25);
+    transform: translateY(-2px);
+}
+
+.next-button:active {
+    transform: scale(0.96);
+}
