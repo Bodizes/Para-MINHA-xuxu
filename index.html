@@ -4,323 +4,255 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Para Você ❤️</title>
+    <title>Para você ♡</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #080808;
+            color: white;
+            font-family: Arial, sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff4fa3;
+            font-size: 42px;
+            margin-bottom: 15px;
+
+            text-shadow:
+                0 0 10px rgba(255, 79, 163, 0.5),
+                0 0 30px rgba(255, 79, 163, 0.2);
+        }
+
+        .heart {
+            font-size: 45px;
+            margin-bottom: 20px;
+
+            animation: pulsar 1.8s infinite;
+        }
+
+        .text {
+            color: #ddd;
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 35px;
+        }
+
+        .card {
+            padding: 30px 25px;
+
+            background: #101010;
+
+            border: 1px solid rgba(255, 79, 163, 0.4);
+            border-radius: 20px;
+
+            box-shadow:
+                0 0 20px rgba(255, 79, 163, 0.08),
+                inset 0 0 20px rgba(255, 79, 163, 0.02);
+        }
+
+        .music-title {
+            color: #ff4fa3;
+            font-size: 20px;
+            font-weight: bold;
+
+            margin-bottom: 10px;
+        }
+
+        .music-message {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        #botaoMusica {
+            width: 65px;
+            height: 65px;
+
+            border-radius: 50%;
+            border: 2px solid #ff4fa3;
+
+            background: #080808;
+            color: #ff4fa3;
+
+            font-size: 26px;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+
+            box-shadow:
+                0 0 15px rgba(255, 79, 163, 0.25);
+        }
+
+        #botaoMusica:hover {
+            background: #ff4fa3;
+            color: #080808;
+
+            transform: scale(1.08);
+
+            box-shadow:
+                0 0 25px rgba(255, 79, 163, 0.6);
+        }
+
+        #botaoMusica.tocando {
+            background: #ff4fa3;
+            color: #080808;
+
+            animation: brilho 1.5s infinite;
+        }
+
+        .status {
+            margin-top: 15px;
+            color: #ff8fc4;
+            font-size: 12px;
+        }
+
+        @keyframes pulsar {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.12);
+            }
+        }
+
+        @keyframes brilho {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 79, 163, 0.6);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 79, 163, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 79, 163, 0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .text {
+                font-size: 15px;
+            }
+
+            .card {
+                padding: 25px 18px;
+            }
+        }
+    </style>
 </head>
-<script src="script.js"></script>
-</body>
+
 <body>
 
-    <header>
-        <h1>Para Você ❤️</h1>
-        <p>Um cantinho feito especialmente para você.</p>
-    </header>
+    <main class="container">
 
-    <main>
+        <div class="heart">♡</div>
 
-        <section class="menu">
+        <h1>Para você</h1>
 
-            <button onclick="abrirAba('amor')">
-                ❤️ Eu te amo
+        <p class="text">
+            Eu queria fazer algo especial para você.
+            Então comecei a aprender uma música para,
+            algum dia, poder cantar ela para você. ♡
+        </p>
+
+        <section class="card">
+
+            <div class="music-title">
+                No Escuro — ANAVITÓRIA
+            </div>
+
+            <div class="music-message">
+                Estou aprendendo essa música para cantar pra você. ♡
+            </div>
+
+            <audio id="musica" preload="metadata">
+                <source src="No%20escuro.mp3" type="audio/mpeg">
+            </audio>
+
+            <button id="botaoMusica">
+                🎵
             </button>
 
-            <button onclick="abrirAba('poemas')">
-                🌹 Poemas
-            </button>
-
-            <button class="card-button" onclick="abrirAba('piadas')">
-
-    <div class="icon">🕷️</div>
-
-    <div class="button-text">
-        <strong>A piada da aranha</strong>
-        <small>Essa é especialmente ruim KSKSKSK</small>
-    </div>
-
-    <div class="arrow">→</div>
-
-            </button>
-
-         <button class="card-button" onclick="abrirAba('vinte-motivos')">
-
-    <div class="icon">20</div>
-
-    <div class="button-text">
-        <strong>20 motivos</strong>
-        <small>Descubra um por um...</small>
-    </div>
-
-    <div class="arrow">→</div>
-
-         </button>
-
-            <button onclick="abrirAba('surpresa')">
-                🎁 Surpresa
-            </button>
-
-        </section>
-
-        <section id="conteudo" class="conteudo">
-
-            <h2>Bem-vinda 💗</h2>
-
-            <p>
-                Clique em uma das opções acima
-                para descobrir uma pequena surpresa.
-            </p>
+            <div class="status" id="status">
+                Toque para ouvir ♡
+            </div>
 
         </section>
 
     </main>
 
-    <footer>
-        Feito com AMOR especialmente para você.
-    </footer>
-
-
     <script>
+        const musica = document.getElementById("musica");
+        const botao = document.getElementById("botaoMusica");
+        const status = document.getElementById("status");
 
-        function abrirAba(aba) {
+        botao.addEventListener("click", async function() {
 
-            const conteudo = document.getElementById("conteudo");
+            if (musica.paused) {
 
-            if (aba === "amor") {
+                try {
 
-                conteudo.innerHTML = `
-                    <h2>Eu te amo 🫶</h2>
+                    await musica.play();
 
-                    <p>
-                        Eu te amo de um jeito que às vezes nem sei explicar.
-                        Você conseguiu transformar pequenos momentos
-                        em lembranças que eu quero guardar para sempre.
-                    </p>
-                `;
+                    botao.textContent = "🔊";
+                    botao.classList.add("tocando");
 
+                    status.textContent = "Tocando... ♡";
+
+                } catch (erro) {
+
+                    console.error(erro);
+
+                    status.textContent =
+                        "Não foi possível tocar a música.";
+
+                }
+
+            } else {
+
+                musica.pause();
+
+                botao.textContent = "🎵";
+                botao.classList.remove("tocando");
+
+                status.textContent = "Pausado ♡";
             }
+        });
 
-            else if (aba === "poemas") {
+        musica.addEventListener("ended", function() {
 
-                conteudo.innerHTML = `
-                    <h2>Um pequeno poema 🌹</h2>
+            botao.textContent = "🎵";
+            botao.classList.remove("tocando");
 
-                    <p>
-                        Se eu pudesse guardar um momento,<br>
-                        guardaria todos ao seu lado.<br>
-                        Porque entre tantos caminhos,<br>
-                        você se tornou meu lugar favorito.
-                    </p>
-                `;
+            status.textContent = "Toque para ouvir novamente ♡";
 
-            }
-
-            else if (aba === "piadas") {
-
-    conteudo.innerHTML = `
-        <div class="message-icon">🕷️</div>
-
-        <h2>A piada da aranha</h2>
-
-        <p>
-            Você sabe qual é o animal mais carente do mundo?
-            <br><br>
-
-            <strong>A aranha.</strong> 🕷️
-            <br><br>
-
-            Porque ela é...
-            <br><br>
-
-            <strong class="big-love">
-                ARAC-NEED-YOU
-            </strong>
-            <br><br>
-
-            KAKAKAKKAKAKAKKAKAKAKAK
-            <br><br>
-
-
-            Essa foi de tiozão.
-            Mas eu precisava colocar aqui. 
-            (porque eu sou que nem a aranha) 😭
-        </p>
-    `;
-
-            }
-
-else if (aba === "vinte-motivos") {
-
-    const motivos = [
-
-        "Seu jeito de ser. ♡",
-
-        "Sua espontaneiadade, que consegue deixar qualquer momento mais especial.",
-
-        "O jeito que você conversa comigo.",
-
-        "Nossas brincadeiras completamente sem sentido KSKSKSK.",
-
-        "Seus áudios.",
-
-        "Os momentos aleatórios que acabam virando memórias.",
-
-        "A forma como você consegue melhorar meus dias.",
-
-        "Nossas conversas que parecem nunca acabar.",
-
-        "As lembranças que estamos criando juntos.",
-
-        "Seu carinho.",
-        
-        "Sua personalidade e tudo que faz você ser você.",
-
-        "O jeito único que você age.",
-
-        "As coisas pequenas que você faz ou fala e talvez nem perceba.",
-
-        "Nossas pequenas Conversas satisfatórias.",
-
-        "Aqueles momentos simples que acabam sendo os melhores.",
-
-        "As suas doideiras.",
-
-        "Todas as histórias que ainda podemos criar.",
-
-        "O fato de que, entre tantas pessoas, VOCÊ se tornou alguém tão especial para mim.",
-
-        "Você é tão perfeitinha.",
-
-        "E o principal: porque simplesmente é você. ❤️"
-
-    ];
-
-    let motivoAtual = 0;
-
-    conteudo.innerHTML = `
-        <div class="message-icon">20</div>
-
-        <p class="motivo-numero">
-            MOTIVO <span>01</span> / 20
-        </p>
-
-        <h2>Por que você? ♡</h2>
-
-        <p id="texto-motivo" class="motivo-texto">
-            ${motivos[0]}
-        </p>
-
-        <button class="next-button" onclick="proximoMotivo()">
-            Próximo motivo →
-        </button>
-    `;
-
-    window.proximoMotivo = function() {
-
-        motivoAtual++;
-
-        const texto = document.getElementById("texto-motivo");
-        const numero = document.querySelector(".motivo-numero span");
-        const botao = document.querySelector(".next-button");
-
-        if (motivoAtual < motivos.length) {
-
-            texto.style.opacity = "0";
-            texto.style.transform = "translateY(8px)";
-
-            setTimeout(() => {
-
-                texto.textContent = motivos[motivoAtual];
-
-                numero.textContent =
-                    String(motivoAtual + 1).padStart(2, "0");
-
-                texto.style.opacity = "1";
-                texto.style.transform = "translateY(0)";
-
-            }, 180);
-
-        }
-
-        else {
-
-            texto.style.opacity = "0";
-
-            setTimeout(() => {
-
-                numero.textContent = "♡";
-
-                texto.innerHTML = `
-                    <strong class="big-love">
-                        E esses são só 20.
-                        <br><br>
-                        Eu poderia continuar...
-                        <br><br>
-                        mas acho que você já entendeu. ❤️
-                    </strong>
-                `;
-
-                texto.style.opacity = "1";
-
-                botao.textContent = "Voltar ao primeiro motivo ↻";
-
-                botao.onclick = function() {
-
-                    motivoAtual = 0;
-
-                    numero.textContent = "01";
-
-                    texto.innerHTML = motivos[0];
-
-                    botao.textContent = "Próximo motivo →";
-
-                    botao.onclick = window.proximoMotivo;
-                };
-
-            }, 180);
-
-        }
-
-    };
-
-}
-
-            else if (aba === "surpresa") {
-
-                conteudo.innerHTML = `
-                    <h2>🎁 Surpresa!</h2>
-
-                    <p>
-                        Se você chegou até aqui,
-                        significa que abriu todas as abas
-                        E EU TE AMOOOOOO POR ESSE TEMPINHO DE ATENÇÃO
-                        <br><br>
-
-                        <strong>
-                            Eu escolheria você em todas vidas. 🫶
-                        </strong>
-                    </p>
-                `;
-
-            }
-
-        }
-
+        });
     </script>
 
 </body>
 </html>
-<!-- MÚSICA -->
-<audio id="musica" loop>
-    <source src="No%20escuro.mp3" type="audio/mpeg">
-</audio>
-
-<div class="music-player">
-    <button id="botaoMusica" onclick="toggleMusica()">🎵</button>
-
-    <div class="music-info">
-        <span class="music-title">No escuro — ANAVITÓRIA</span>
-        <span class="music-message">
-            Estou aprendendo essa música para cantar pra você. ♡
-        </span>
-    </div>
-</div>
