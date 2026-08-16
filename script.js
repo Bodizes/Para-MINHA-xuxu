@@ -82,3 +82,19 @@ function abrirAba(aba) {
     }
 
 }
+const musica = document.getElementById("musica");
+const botaoMusica = document.getElementById("botaoMusica");
+
+function toggleMusica() {
+    if (musica.paused) {
+        musica.play();
+
+        botaoMusica.textContent = "🔊";
+        botaoMusica.classList.add("tocando");
+    } else {
+        musica.pause();
+
+        botaoMusica.textContent = "🎵";
+        botaoMusica.classList.remove("tocando");
+    }
+}
