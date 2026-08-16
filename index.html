@@ -28,13 +28,31 @@
                 🌹 Poemas
             </button>
 
-            <button onclick="abrirAba('piadas')">
-                😂 Piadas
+            <button class="card-button" onclick="abrirAba('piadas')">
+
+    <div class="icon">🕷️</div>
+
+    <div class="button-text">
+        <strong>A piada da aranha</strong>
+        <small>Essa é especialmente ruim KSKSKSK</small>
+    </div>
+
+    <div class="arrow">→</div>
+
             </button>
 
-            <button onclick="abrirAba('motivos')">
-                💗 Motivos
-            </button>
+         <button class="card-button" onclick="abrirAba('vinte-motivos')">
+
+    <div class="icon">20</div>
+
+    <div class="button-text">
+        <strong>20 motivos</strong>
+        <small>Descubra um por um...</small>
+    </div>
+
+    <div class="arrow">→</div>
+
+         </button>
 
             <button onclick="abrirAba('surpresa')">
                 🎁 Surpresa
@@ -44,7 +62,7 @@
 
         <section id="conteudo" class="conteudo">
 
-            <h2>Bem-vinda ❤️</h2>
+            <h2>Bem-vinda 💗</h2>
 
             <p>
                 Clique em uma das opções acima
@@ -56,7 +74,7 @@
     </main>
 
     <footer>
-        Feito com ❤️ especialmente para você.
+        Feito com AMOR especialmente para você.
     </footer>
 
 
@@ -69,7 +87,7 @@
             if (aba === "amor") {
 
                 conteudo.innerHTML = `
-                    <h2>Eu te amo ❤️</h2>
+                    <h2>Eu te amo 🫶</h2>
 
                     <p>
                         Eu te amo de um jeito que às vezes nem sei explicar.
@@ -97,35 +115,173 @@
 
             else if (aba === "piadas") {
 
-                conteudo.innerHTML = `
-                    <h2>Hora da piada 😂</h2>
+    conteudo.innerHTML = `
+        <div class="message-icon">🕷️</div>
 
-                    <p>
-                        Você sabe por que eu nunca consigo ficar bravo com você?
+        <h2>A piada da aranha</h2>
+
+        <p>
+            Você sabe qual é o animal mais carente do mundo?
+            <br><br>
+
+            <strong>A aranha.</strong> 🕷️
+            <br><br>
+
+            Porque ela é...
+            <br><br>
+
+            <strong class="big-love">
+                ARAC-NEED-YOU
+            </strong>
+            <br><br>
+
+            KAKAKAKKAKAKAKKAKAKAKAK
+            <br><br>
+
+
+            Essa foi de tiozão.
+            Mas eu precisava colocar aqui. 
+            (porque eu sou que nem a aranha) 😭
+        </p>
+    `;
+
+            }
+
+else if (aba === "vinte-motivos") {
+
+    const motivos = [
+
+        "Seu jeito de ser. ♡",
+
+        "Sua espontaneiadade, que consegue deixar qualquer momento mais especial.",
+
+        "O jeito que você conversa comigo.",
+
+        "Nossas brincadeiras completamente sem sentido KSKSKSK.",
+
+        "Seus áudios.",
+
+        "Os momentos aleatórios que acabam virando memórias.",
+
+        "A forma como você consegue melhorar meus dias.",
+
+        "Nossas conversas que parecem nunca acabar.",
+
+        "As lembranças que estamos criando juntos.",
+
+        "Seu carinho.",
+        
+        "Sua personalidade e tudo que faz você ser você.",
+
+        "O jeito único que você age.",
+
+        "As coisas pequenas que você faz ou fala e talvez nem perceba.",
+
+        "Nossas pequenas Conversas satisfatórias.",
+
+        "Aqueles momentos simples que acabam sendo os melhores.",
+
+        "As suas doideiras.",
+
+        "Todas as histórias que ainda podemos criar.",
+
+        "O fato de que, entre tantas pessoas, VOCÊ se tornou alguém tão especial para mim.",
+
+        "Você é tão perfeitinha.",
+
+        "E o principal: porque simplesmente é você. ❤️"
+
+    ];
+
+    let motivoAtual = 0;
+
+    conteudo.innerHTML = `
+        <div class="message-icon">20</div>
+
+        <p class="motivo-numero">
+            MOTIVO <span>01</span> / 20
+        </p>
+
+        <h2>Por que você? ♡</h2>
+
+        <p id="texto-motivo" class="motivo-texto">
+            ${motivos[0]}
+        </p>
+
+        <button class="next-button" onclick="proximoMotivo()">
+            Próximo motivo →
+        </button>
+    `;
+
+    window.proximoMotivo = function() {
+
+        motivoAtual++;
+
+        const texto = document.getElementById("texto-motivo");
+        const numero = document.querySelector(".motivo-numero span");
+        const botao = document.querySelector(".next-button");
+
+        if (motivoAtual < motivos.length) {
+
+            texto.style.opacity = "0";
+            texto.style.transform = "translateY(8px)";
+
+            setTimeout(() => {
+
+                texto.textContent = motivos[motivoAtual];
+
+                numero.textContent =
+                    String(motivoAtual + 1).padStart(2, "0");
+
+                texto.style.opacity = "1";
+                texto.style.transform = "translateY(0)";
+
+            }, 180);
+
+        }
+
+        else {
+
+            texto.style.opacity = "0";
+
+            setTimeout(() => {
+
+                numero.textContent = "♡";
+
+                texto.innerHTML = `
+                    <strong class="big-love">
+                        E esses são só 20.
                         <br><br>
-                        Porque você olha pra mim e eu esqueço até o motivo. ❤️
-                    </p>
+                        Eu poderia continuar...
+                        <br><br>
+                        mas acho que você já entendeu. ❤️
+                    </strong>
                 `;
 
-            }
+                texto.style.opacity = "1";
 
-            else if (aba === "motivos") {
+                botao.textContent = "Voltar ao primeiro motivo ↻";
 
-                conteudo.innerHTML = `
-                    <h2>Alguns motivos 💗</h2>
+                botao.onclick = function() {
 
-                    <p>
-                        Seu jeito.<br>
-                        Seu sorriso.<br>
-                        Nossas conversas.<br>
-                        Nossas brincadeiras.<br>
-                        Os momentos simples.<br><br>
+                    motivoAtual = 0;
 
-                        E principalmente... você. ❤️
-                    </p>
-                `;
+                    numero.textContent = "01";
 
-            }
+                    texto.innerHTML = motivos[0];
+
+                    botao.textContent = "Próximo motivo →";
+
+                    botao.onclick = window.proximoMotivo;
+                };
+
+            }, 180);
+
+        }
+
+    };
+
+}
 
             else if (aba === "surpresa") {
 
@@ -134,11 +290,12 @@
 
                     <p>
                         Se você chegou até aqui,
-                        significa que abriu todas as abas.
+                        significa que abriu todas as abas
+                        E EU TE AMOOOOOO POR ESSE TEMPINHO DE ATENÇÃO
                         <br><br>
 
                         <strong>
-                            Eu escolheria você novamente. ❤️
+                            Eu escolheria você em todas vidas. 🫶
                         </strong>
                     </p>
                 `;
