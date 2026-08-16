@@ -103,3 +103,4 @@ function toggleMusica() {
         botaoMusica.classList.remove("tocando");
     }
 }
+alert("O JavaScript está funcionando!");
