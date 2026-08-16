@@ -13,28 +13,130 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             min-height: 100vh;
-            background: #080808;
+            background:
+                radial-gradient(circle at top, #180912 0%, #080808 45%),
+                #080808;
+
             color: white;
             font-family: Arial, sans-serif;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
 
             overflow-x: hidden;
         }
 
+        /* =========================
+           CORAÇÕES
+        ========================= */
+
+        .coracoes {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .coracao {
+            position: absolute;
+            bottom: -30px;
+
+            color: rgba(255, 79, 163, 0.25);
+
+            font-size: 18px;
+
+            animation: subir linear infinite;
+        }
+
+        .coracao:nth-child(1) {
+            left: 10%;
+            animation-duration: 8s;
+        }
+
+        .coracao:nth-child(2) {
+            left: 25%;
+            animation-duration: 11s;
+            animation-delay: 2s;
+        }
+
+        .coracao:nth-child(3) {
+            left: 45%;
+            animation-duration: 9s;
+            animation-delay: 1s;
+        }
+
+        .coracao:nth-child(4) {
+            left: 65%;
+            animation-duration: 12s;
+            animation-delay: 3s;
+        }
+
+        .coracao:nth-child(5) {
+            left: 82%;
+            animation-duration: 10s;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes subir {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-110vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
         .container {
-            width: 90%;
-            max-width: 700px;
+            position: relative;
+            z-index: 1;
+
+            width: 92%;
+            max-width: 750px;
+
+            margin: auto;
+
+            padding: 50px 0 70px;
+
             text-align: center;
+        }
+
+        /* =========================
+           TOPO
+        ========================= */
+
+        .heart {
+            font-size: 50px;
+
+            color: #ff4fa3;
+
+            margin-bottom: 15px;
+
+            animation: pulsar 1.8s infinite;
+
+            text-shadow:
+                0 0 15px rgba(255, 79, 163, 0.5);
         }
 
         h1 {
             color: #ff4fa3;
-            font-size: 42px;
+
+            font-size: 44px;
+
             margin-bottom: 15px;
 
             text-shadow:
@@ -42,36 +144,213 @@
                 0 0 30px rgba(255, 79, 163, 0.2);
         }
 
-        .heart {
-            font-size: 45px;
-            margin-bottom: 20px;
-
-            animation: pulsar 1.8s infinite;
-        }
-
-        .text {
+        .intro {
             color: #ddd;
+
             font-size: 17px;
-            line-height: 1.7;
-            margin-bottom: 35px;
+
+            line-height: 1.8;
+
+            max-width: 620px;
+
+            margin: auto auto 35px;
         }
+
+        /* =========================
+           MENU
+        ========================= */
+
+        .menu {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 12px;
+
+            margin-bottom: 30px;
+        }
+
+        .menu button {
+            padding: 15px 10px;
+
+            border: 1px solid rgba(255, 79, 163, 0.35);
+
+            border-radius: 14px;
+
+            background: #101010;
+
+            color: #ff8fc4;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s ease;
+        }
+
+        .menu button:hover {
+            background: #ff4fa3;
+
+            color: #080808;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 25px rgba(255, 79, 163, 0.25);
+        }
+
+        .menu button.ativo {
+            background: #ff4fa3;
+
+            color: #080808;
+        }
+
+        /* =========================
+           ABAS
+        ========================= */
+
+        .aba {
+            display: none;
+
+            animation: aparecer 0.4s ease;
+        }
+
+        .aba.ativa {
+            display: block;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           CARDS
+        ========================= */
 
         .card {
             padding: 30px 25px;
 
-            background: #101010;
+            background: rgba(16, 16, 16, 0.95);
 
             border: 1px solid rgba(255, 79, 163, 0.4);
+
             border-radius: 20px;
 
             box-shadow:
-                0 0 20px rgba(255, 79, 163, 0.08),
+                0 0 25px rgba(255, 79, 163, 0.08),
                 inset 0 0 20px rgba(255, 79, 163, 0.02);
+
+            margin-bottom: 20px;
         }
+
+        .titulo {
+            color: #ff4fa3;
+
+            font-size: 24px;
+
+            margin-bottom: 18px;
+        }
+
+        .texto {
+            color: #ddd;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+        .destaque {
+            color: #ff8fc4;
+
+            font-weight: bold;
+        }
+
+        /* =========================
+           POEMA
+        ========================= */
+
+        .poema {
+            color: #ddd;
+
+            line-height: 2;
+
+            font-size: 16px;
+
+            font-style: italic;
+        }
+
+        /* =========================
+           20 MOTIVOS
+        ========================= */
+
+        .motivos {
+            display: grid;
+
+            gap: 10px;
+
+            text-align: left;
+        }
+
+        .motivo {
+            padding: 13px 15px;
+
+            background: #151515;
+
+            border-radius: 12px;
+
+            border-left: 3px solid #ff4fa3;
+
+            color: #ddd;
+
+            transition: 0.25s ease;
+        }
+
+        .motivo:hover {
+            transform: translateX(5px);
+
+            background: #1b1b1b;
+        }
+
+        /* =========================
+           PIADA
+        ========================= */
+
+        .piada {
+            font-size: 21px;
+
+            color: #fff;
+
+            line-height: 1.7;
+        }
+
+        .punchline {
+            color: #ff4fa3;
+
+            font-weight: bold;
+
+            font-size: 25px;
+
+            margin-top: 15px;
+        }
+
+        /* =========================
+           MÚSICA
+        ========================= */
 
         .music-title {
             color: #ff4fa3;
+
             font-size: 20px;
+
             font-weight: bold;
 
             margin-bottom: 10px;
@@ -79,7 +358,11 @@
 
         .music-message {
             color: #aaa;
+
             font-size: 14px;
+
+            line-height: 1.6;
+
             margin-bottom: 25px;
         }
 
@@ -88,9 +371,11 @@
             height: 65px;
 
             border-radius: 50%;
+
             border: 2px solid #ff4fa3;
 
             background: #080808;
+
             color: #ff4fa3;
 
             font-size: 26px;
@@ -105,6 +390,7 @@
 
         #botaoMusica:hover {
             background: #ff4fa3;
+
             color: #080808;
 
             transform: scale(1.08);
@@ -115,6 +401,7 @@
 
         #botaoMusica.tocando {
             background: #ff4fa3;
+
             color: #080808;
 
             animation: brilho 1.5s infinite;
@@ -122,9 +409,29 @@
 
         .status {
             margin-top: 15px;
+
             color: #ff8fc4;
+
             font-size: 12px;
         }
+
+        /* =========================
+           FINAL
+        ========================= */
+
+        .final {
+            margin-top: 30px;
+
+            color: #ff8fc4;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+        /* =========================
+           ANIMAÇÕES
+        ========================= */
 
         @keyframes pulsar {
             0%, 100% {
@@ -138,29 +445,60 @@
 
         @keyframes brilho {
             0% {
-                box-shadow: 0 0 0 0 rgba(255, 79, 163, 0.6);
+                box-shadow:
+                    0 0 0 0 rgba(255, 79, 163, 0.6);
             }
 
             70% {
-                box-shadow: 0 0 0 15px rgba(255, 79, 163, 0);
+                box-shadow:
+                    0 0 0 15px rgba(255, 79, 163, 0);
             }
 
             100% {
-                box-shadow: 0 0 0 0 rgba(255, 79, 163, 0);
+                box-shadow:
+                    0 0 0 0 rgba(255, 79, 163, 0);
             }
         }
 
+        /* =========================
+           CELULAR
+        ========================= */
+
         @media (max-width: 600px) {
-            h1 {
-                font-size: 32px;
+
+            .container {
+                padding-top: 35px;
             }
 
-            .text {
+            h1 {
+                font-size: 34px;
+            }
+
+            .heart {
+                font-size: 40px;
+            }
+
+            .intro {
                 font-size: 15px;
+            }
+
+            .menu {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .menu button {
+                font-size: 12px;
+
+                padding: 13px 6px;
             }
 
             .card {
                 padding: 25px 18px;
+            }
+
+            .texto,
+            .poema {
+                font-size: 15px;
             }
         }
     </style>
@@ -168,97 +506,539 @@
 
 <body>
 
+    <!-- CORAÇÕES NO FUNDO -->
+
+    <div class="coracoes">
+        <div class="coracao">♡</div>
+        <div class="coracao">♡</div>
+        <div class="coracao">♡</div>
+        <div class="coracao">♡</div>
+        <div class="coracao">♡</div>
+    </div>
+
+
     <main class="container">
+
+        <!-- TOPO -->
 
         <div class="heart">♡</div>
 
         <h1>Para você</h1>
 
-        <p class="text">
+        <p class="intro">
             Mesmo que a nossa história tenha começado pela internet
             e que a gente ainda não tenha se encontrado pessoalmente,
-            você se tornou alguém muito importante para mim.
-
+            você se tornou alguém muito importante para mim. ♡
             <br><br>
-
-            Eu queria fazer algo especial para você.
-            Então comecei a aprender uma música para,
-            algum dia, poder cantar ela para você. ♡
+            Eu fiz esse pequeno cantinho pensando em você.
         </p>
 
-        <section class="card">
 
-            <div class="music-title">
-                No Escuro — ANAVITÓRIA
-            </div>
+        <!-- MENU -->
 
-            <div class="music-message">
-                Ainda não posso cantar essa música para você pessoalmente...
-                então, por enquanto, deixo ela aqui. ♡
-            </div>
+        <nav class="menu">
 
-            <audio id="musica" preload="metadata">
-                <source src="No%20escuro.mp3" type="audio/mpeg">
-            </audio>
-
-            <button id="botaoMusica">
-                🎵
+            <button class="ativo" onclick="abrirAba('amor', this)">
+                ♡ Eu te amo
             </button>
 
-            <div class="status" id="status">
-                Toque para ouvir ♡
+            <button onclick="abrirAba('poema', this)">
+                ✦ Um textinho
+            </button>
+
+            <button onclick="abrirAba('motivos', this)">
+                ♥ 20 motivos
+            </button>
+
+            <button onclick="abrirAba('piada', this)">
+                ♡ Uma piada
+            </button>
+
+            <button onclick="abrirAba('musica', this)">
+                ♪ Nossa música
+            </button>
+
+            <button onclick="abrirAba('final', this)">
+                ♡ Para você
+            </button>
+
+        </nav>
+
+
+        <!-- =========================
+             ABA: EU TE AMO
+        ========================= -->
+
+        <section id="amor" class="aba ativa">
+
+            <div class="card">
+
+                <h2 class="titulo">
+                    Eu te amo ♡
+                </h2>
+
+                <p class="texto">
+                    Talvez seja estranho pensar que duas pessoas
+                    podem criar algo tão especial sem nunca terem
+                    estado frente a frente.
+
+                    <br><br>
+
+                    Mas, de alguma forma, foi exatamente isso que
+                    aconteceu com a gente.
+
+                    <br><br>
+
+                    A gente se conheceu pela internet, criou nossa
+                    história, compartilhou momentos, conversas,
+                    risadas e sentimentos.
+
+                    <br><br>
+
+                    E mesmo sem ter te encontrado pessoalmente,
+                    você conseguiu ocupar um espaço enorme
+                    na minha vida.
+
+                    <br><br>
+
+                    <span class="destaque">
+                        Eu te amo. ♡
+                    </span>
+                </p>
+
             </div>
 
         </section>
 
+
+        <!-- =========================
+             ABA: POEMA
+        ========================= -->
+
+        <section id="poema" class="aba">
+
+            <div class="card">
+
+                <h2 class="titulo">
+                    Um textinho para você
+                </h2>
+
+                <p class="poema">
+
+                    Se distância fosse medida em carinho,<br>
+                    talvez você estivesse sempre aqui.
+
+                    <br><br>
+
+                    Se palavras pudessem atravessar telas,<br>
+                    eu mandaria todas as que existem.
+
+                    <br><br>
+
+                    Porque, mesmo do outro lado da tela,<br>
+                    você consegue fazer meus dias diferentes.
+
+                    <br><br>
+
+                    E talvez esse seja o mais bonito de tudo:<br>
+                    a gente ainda nem se encontrou pessoalmente,<br>
+                    mas eu já encontrei em você<br>
+                    alguém que eu quero continuar tendo por perto.
+
+                    <br><br>
+
+                    ♡
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ABA: 20 MOTIVOS
+        ========================= -->
+
+        <section id="motivos" class="aba">
+
+            <div class="card">
+
+                <h2 class="titulo">
+                    20 motivos para amar você ♡
+                </h2>
+
+                <div class="motivos">
+
+                    <div class="motivo">
+                        ♡ 1. Seu jeito de ser.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 2. O jeito que você consegue me fazer sorrir.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 3. Suas mensagens.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 4. Nossas conversas.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 5. As besteiras que a gente fala.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 6. Seu carinho.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 7. O jeito que você me trata.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 8. As risadas que você me proporciona.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 9. Porque você consegue melhorar meus dias.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 10. Porque você me faz sentir especial.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 11. Porque eu posso ser eu mesmo com você.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 12. Porque nossas conversas nunca parecem suficientes.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 13. Porque você é importante para mim.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 14. Porque você está presente mesmo estando longe.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 15. Porque cada momento nosso vale muito.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 16. Porque você é única para mim.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 17. Porque você consegue transformar algo simples em especial.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 18. Porque eu gosto de imaginar nosso futuro.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 19. Porque eu quero viver muitos outros momentos com você.
+                    </div>
+
+                    <div class="motivo">
+                        ♡ 20. Porque simplesmente... é você.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ABA: PIADA
+        ========================= -->
+
+        <section id="piada" class="aba">
+
+            <div class="card">
+
+                <h2 class="titulo">
+                    Uma piada só nossa
+                </h2>
+
+                <p class="piada">
+
+                    Você sabe qual é o animal mais carente
+                    do mundo?
+
+                </p>
+
+                <p class="punchline">
+
+                    A aranha.
+
+                    <br>
+
+                    Porque ela é muito...
+
+                    <br>
+
+                    arac-need-you. 😭🕷️
+
+                </p>
+
+                <p class="texto" style="margin-top: 20px;">
+                    Sim, eu coloquei uma piada de aranha
+                    num site romântico.
+
+                    <br>
+
+                    E sim, eu achei genial. KSKSKSKSK
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ABA: MÚSICA
+        ========================= -->
+
+        <section id="musica" class="aba">
+
+            <div class="card">
+
+                <h2 class="titulo">
+                    Uma música para você ♡
+                </h2>
+
+                <div class="music-title">
+                    No Escuro — ANAVITÓRIA
+                </div>
+
+                <div class="music-message">
+                    Ainda não posso cantar essa música para você
+                    pessoalmente... então, por enquanto,
+                    deixo ela aqui. ♡
+                </div>
+
+
+                <!--
+                    IMPORTANTE:
+                    Coloque o arquivo "No escuro.mp3"
+                    na mesma pasta deste HTML.
+                -->
+
+                <audio id="audio">
+
+                    <source
+                        src="No%20escuro.mp3"
+                        type="audio/mpeg"
+                    >
+
+                </audio>
+
+
+                <button id="botaoMusica">
+                    🎵
+                </button>
+
+
+                <div class="status" id="status">
+                    Toque para ouvir ♡
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ABA: FINAL
+        ========================= -->
+
+        <section id="final" class="aba">
+
+            <div class="card">
+
+                <h2 class="titulo">
+                    Para você ♡
+                </h2>
+
+                <p class="texto">
+
+                    Eu sei que a gente ainda não se encontrou
+                    pessoalmente.
+
+                    <br><br>
+
+                    Sei que, por enquanto, existe uma tela
+                    entre nós.
+
+                    <br><br>
+
+                    Mas isso não muda o quanto você é importante
+                    para mim.
+
+                    <br><br>
+
+                    Espero que um dia a gente possa olhar para
+                    tudo isso e lembrar de quando nossa história
+                    ainda existia principalmente através de
+                    mensagens, chamadas e uma tela.
+
+                    <br><br>
+
+                    Até lá...
+
+                    <br><br>
+
+                    <span class="destaque">
+                        eu continuo escolhendo você. ♡
+                    </span>
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <p class="final">
+            Feito especialmente para você ♡
+        </p>
+
     </main>
 
+
     <script>
-        const musica = document.getElementById("musica");
-        const botao = document.getElementById("botaoMusica");
-        const status = document.getElementById("status");
 
-        botao.addEventListener("click", async function() {
+        /* =========================
+           SISTEMA DAS ABAS
+        ========================= */
 
-            if (musica.paused) {
+        function abrirAba(id, botao) {
 
-                try {
+            const abas =
+                document.querySelectorAll(".aba");
 
-                    await musica.play();
+            const botoes =
+                document.querySelectorAll(".menu button");
 
-                    botao.textContent = "🔊";
-                    botao.classList.add("tocando");
 
-                    status.textContent = "Tocando... ♡";
+            abas.forEach(function(aba) {
 
-                } catch (erro) {
+                aba.classList.remove("ativa");
 
-                    console.error(erro);
+            });
 
-                    status.textContent =
-                        "Não foi possível tocar a música.";
+
+            botoes.forEach(function(botao) {
+
+                botao.classList.remove("ativo");
+
+            });
+
+
+            document
+                .getElementById(id)
+                .classList.add("ativa");
+
+
+            botao.classList.add("ativo");
+
+        }
+
+
+        /* =========================
+           MÚSICA
+        ========================= */
+
+        const musica =
+            document.getElementById("audio");
+
+        const botao =
+            document.getElementById("botaoMusica");
+
+        const status =
+            document.getElementById("status");
+
+
+        botao.addEventListener(
+            "click",
+            async function() {
+
+                if (musica.paused) {
+
+                    try {
+
+                        await musica.play();
+
+                        botao.textContent = "🔊";
+
+                        botao.classList.add(
+                            "tocando"
+                        );
+
+                        status.textContent =
+                            "Tocando... ♡";
+
+                    }
+
+                    catch (erro) {
+
+                        console.error(erro);
+
+                        status.textContent =
+                            "Não foi possível tocar a música.";
+
+                    }
 
                 }
 
-            } else {
+                else {
 
-                musica.pause();
+                    musica.pause();
+
+                    botao.textContent = "🎵";
+
+                    botao.classList.remove(
+                        "tocando"
+                    );
+
+                    status.textContent =
+                        "Pausado ♡";
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           FIM DA MÚSICA
+        ========================= */
+
+        musica.addEventListener(
+            "ended",
+            function() {
 
                 botao.textContent = "🎵";
-                botao.classList.remove("tocando");
 
-                status.textContent = "Pausado ♡";
+                botao.classList.remove(
+                    "tocando"
+                );
+
+                status.textContent =
+                    "Toque para ouvir novamente ♡";
+
             }
-        });
+        );
 
-        musica.addEventListener("ended", function() {
-
-            botao.textContent = "🎵";
-            botao.classList.remove("tocando");
-
-            status.textContent = "Toque para ouvir novamente ♡";
-
-        });
     </script>
 
 </body>
