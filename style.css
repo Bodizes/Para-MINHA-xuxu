@@ -183,6 +183,7 @@ footer {
 
 .music-player:hover {
     border-color: #ff4fa3;
+
     box-shadow:
         0 0 20px rgba(255, 79, 163, 0.35),
         0 0 40px rgba(255, 79, 163, 0.12);
@@ -227,7 +228,7 @@ footer {
     animation: pulsarMusica 1.5s infinite;
 }
 
-/* TEXTOS */
+/* TEXTO */
 
 .music-info {
     display: flex;
