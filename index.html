@@ -1,277 +1,153 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Um cantinho especial feito com amor.">
-  <title>Para Você ♡</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para Você ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div class="hearts"></div>
+    <header>
+        <h1>Para Você ❤️</h1>
+        <p>Um cantinho feito especialmente para você.</p>
+    </header>
 
-  <header>
-    <div class="logo">♡</div>
+    <main>
 
-    <nav>
-      <a href="#inicio">Início</a>
-      <a href="#mensagens">Mensagens</a>
-      <a href="#surpresa">Surpresa</a>
-    </nav>
-  </header>
+        <section class="menu">
 
-  <main>
+            <button onclick="abrirAba('amor')">
+                ❤️ Eu te amo
+            </button>
 
-    <!-- INÍCIO -->
-    <section id="inicio" class="hero">
-      <div class="hero-content">
+            <button onclick="abrirAba('poemas')">
+                🌹 Poemas
+            </button>
 
-        <p class="small-title">UM CANTINHO FEITO PARA VOCÊ</p>
+            <button onclick="abrirAba('piadas')">
+                😂 Piadas
+            </button>
 
-        <h1>
-          Para a pessoa<br>
-          <span>que eu amo.</span>
-        </h1>
+            <button onclick="abrirAba('motivos')">
+                💗 Motivos
+            </button>
 
-        <p class="intro">
-          Eu poderia escrever mil coisas aqui,
-          mas talvez nenhuma delas consiga explicar
-          completamente o quanto você é importante para mim.
-        </p>
+            <button onclick="abrirAba('surpresa')">
+                🎁 Surpresa
+            </button>
 
-        <a href="#mensagens" class="main-button">
-          Abrir meu coração ♡
-        </a>
+        </section>
 
-      </div>
-    </section>
+        <section id="conteudo" class="conteudo">
 
+            <h2>Bem-vinda ❤️</h2>
 
-    <!-- MENSAGENS -->
-    <section id="mensagens" class="messages">
+            <p>
+                Clique em uma das opções acima
+                para descobrir uma pequena surpresa.
+            </p>
 
-      <p class="small-title">ALGUMAS COISINHAS PARA VOCÊ</p>
+        </section>
 
-      <h2>Escolha uma aba ♡</h2>
+    </main>
 
-      <div class="tabs">
+    <footer>
+        Feito com ❤️ especialmente para você.
+    </footer>
 
-        <button class="tab active" data-target="amor">
-          💗 Eu te amo
-        </button>
 
-        <button class="tab" data-target="poema">
-          🌹 Um poema
-        </button>
+    <script>
 
-        <button class="tab" data-target="nos">
-          🖤 Só nós dois
-        </button>
+        function abrirAba(aba) {
 
-        <button class="tab" data-target="coisas">
-          ✨ Coisas que amo
-        </button>
+            const conteudo = document.getElementById("conteudo");
 
-        <button class="tab" data-target="piadas">
-          😂 Hora da piada
-        </button>
+            if (aba === "amor") {
 
-        <button class="tab" data-target="surpresa">
-          🎁 Surpresa
-        </button>
+                conteudo.innerHTML = `
+                    <h2>Eu te amo ❤️</h2>
 
-      </div>
+                    <p>
+                        Eu te amo de um jeito que às vezes nem sei explicar.
+                        Você conseguiu transformar pequenos momentos
+                        em lembranças que eu quero guardar para sempre.
+                    </p>
+                `;
 
+            }
 
-      <div class="message-area">
+            else if (aba === "poemas") {
 
-        <!-- AMOR -->
-        <article class="message active-message" id="amor">
+                conteudo.innerHTML = `
+                    <h2>Um pequeno poema 🌹</h2>
 
-          <span class="message-icon">♡</span>
+                    <p>
+                        Se eu pudesse guardar um momento,<br>
+                        guardaria todos ao seu lado.<br>
+                        Porque entre tantos caminhos,<br>
+                        você se tornou meu lugar favorito.
+                    </p>
+                `;
 
-          <h3>Eu te amo.</h3>
+            }
 
-          <p>
-            Eu te amo de um jeito que às vezes nem sei explicar.
-            Amo sua presença, suas mensagens, suas brincadeiras
-            e até aqueles pequenos detalhes que talvez você nem perceba.
-          </p>
+            else if (aba === "piadas") {
 
-          <p>
-            Você conseguiu transformar momentos simples em
-            lembranças que eu quero guardar para sempre.
-          </p>
+                conteudo.innerHTML = `
+                    <h2>Hora da piada 😂</h2>
 
-        </article>
+                    <p>
+                        Você sabe por que eu nunca consigo ficar bravo com você?
+                        <br><br>
+                        Porque você olha pra mim e eu esqueço até o motivo. ❤️
+                    </p>
+                `;
 
+            }
 
-        <!-- POEMA -->
-        <article class="message" id="poema">
+            else if (aba === "motivos") {
 
-          <span class="message-icon">🌹</span>
+                conteudo.innerHTML = `
+                    <h2>Alguns motivos 💗</h2>
 
-          <h3>Um pequeno poema para você</h3>
+                    <p>
+                        Seu jeito.<br>
+                        Seu sorriso.<br>
+                        Nossas conversas.<br>
+                        Nossas brincadeiras.<br>
+                        Os momentos simples.<br><br>
 
-          <p class="poem">
-            Se o mundo fosse uma noite,<br>
-            você seria minha estrela.<br><br>
+                        E principalmente... você. ❤️
+                    </p>
+                `;
 
-            Se fosse um caminho,<br>
-            eu escolheria caminhar ao seu lado.<br><br>
+            }
 
-            E se fosse para escolher<br>
-            uma pessoa entre todas,<br>
-            eu escolheria você.
-          </p>
+            else if (aba === "surpresa") {
 
-        </article>
+                conteudo.innerHTML = `
+                    <h2>🎁 Surpresa!</h2>
 
+                    <p>
+                        Se você chegou até aqui,
+                        significa que abriu todas as abas.
+                        <br><br>
 
-        <!-- NÓS -->
-        <article class="message" id="nos">
+                        <strong>
+                            Eu escolheria você novamente. ❤️
+                        </strong>
+                    </p>
+                `;
 
-          <span class="message-icon">🖤</span>
+            }
 
-          <h3>Só nós dois</h3>
+        }
 
-          <p>
-            Talvez uma das minhas coisas favoritas seja poder
-            compartilhar momentos com você.
-          </p>
-
-          <p>
-            Não precisa ser algo grandioso.
-            Às vezes uma conversa aleatória, uma piada ruim
-            ou simplesmente saber que você está ali
-            já torna meu dia melhor.
-          </p>
-
-          <p>
-            No fim, eu gosto da nossa pequena história.
-          </p>
-
-        </article>
-
-
-        <!-- COISAS -->
-        <article class="message" id="coisas">
-
-          <span class="message-icon">✨</span>
-
-          <h3>Coisas que amo em você</h3>
-
-          <ul class="love-list">
-            <li>♡ Seu jeito de ser</li>
-            <li>♡ Suas pequenas manias</li>
-            <li>♡ As nossas conversas</li>
-            <li>♡ Quando você me faz rir</li>
-            <li>♡ Os momentos que passamos juntos</li>
-            <li>♡ O simples fato de você existir na minha vida</li>
-          </ul>
-
-        </article>
-
-
-        <!-- PIADAS -->
-        <article class="message" id="piadas">
-
-          <span class="message-icon">😂</span>
-
-          <h3>Hora das piadas ruins</h3>
-
-          <p>
-            Você sabe por que eu nunca consigo esquecer você?
-          </p>
-
-          <p class="joke">
-            Porque meu coração não tem botão de "desfazer". 😭
-          </p>
-
-          <hr>
-
-          <p>
-            Outra:
-          </p>
-
-          <p class="joke">
-            Você é Wi-Fi?
-            Porque sinto uma conexão muito forte. 📶💗
-          </p>
-
-          <hr>
-
-          <p>
-            Essa foi horrível, eu sei.
-            Mas pelo menos você sorriu. 😌
-          </p>
-
-        </article>
-
-
-        <!-- SURPRESA -->
-        <article class="message" id="surpresa">
-
-          <span class="message-icon">🎁</span>
-
-          <h3>Você encontrou a surpresa.</h3>
-
-          <p>
-            Se você chegou até aqui...
-          </p>
-
-          <p>
-            eu só queria deixar uma última coisa escrita:
-          </p>
-
-          <div class="final-message">
-            Eu te amo. ♡
-          </div>
-
-          <p>
-            E espero que, sempre que você voltar para esse site,
-            consiga lembrar que existe alguém que fez tudo isso
-            pensando em você.
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- FINAL -->
-    <section class="final-section" id="surpresa">
-
-      <div class="final-heart">♡</div>
-
-      <h2>Feito especialmente para você.</h2>
-
-      <p>
-        Com carinho, de alguém que te ama.
-      </p>
-
-      <button id="heartButton" class="heart-button">
-        Clique aqui ♡
-      </button>
-
-      <p id="heartMessage" class="hidden-message">
-        Eu te amo mais do que esse site consegue explicar. 💗
-      </p>
-
-    </section>
-
-  </main>
-
-
-  <footer>
-    <p>Feito com ♡ para uma pessoa especial.</p>
-  </footer>
-
-  <script src="script.js"></script>
+    </script>
 
 </body>
 </html>
