@@ -87,10 +87,14 @@ const botaoMusica = document.getElementById("botaoMusica");
 
 function toggleMusica() {
     if (musica.paused) {
-        musica.play();
-
-        botaoMusica.textContent = "🔊";
-        botaoMusica.classList.add("tocando");
+        musica.play()
+            .then(() => {
+                botaoMusica.textContent = "🔊";
+                botaoMusica.classList.add("tocando");
+            })
+            .catch((erro) => {
+                console.log("Não foi possível reproduzir a música:", erro);
+            });
     } else {
         musica.pause();
 
